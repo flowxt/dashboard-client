@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dashboard Client pour Sites Vercel
 
-## Getting Started
+Un tableau de bord moderne permettant à vos clients de visualiser et gérer leurs sites web hébergés sur Vercel.
 
-First, run the development server:
+## Fonctionnalités
+
+- **Intégration Vercel** : Visualisation des projets, déploiements et domaines
+- **Interface moderne** : Design responsive avec thème clair/sombre
+- **Analytics** : Affichage des statistiques de trafic (préparé pour Plausible.io)
+- **Calendrier** : Gestion des événements avec intégration Google Calendar
+- **Multilingue** : Support pour plusieurs langues
+
+## Configuration
+
+### Prérequis
+
+- Node.js 18+ et npm/yarn
+- Un compte Vercel avec des projets existants
+- (Optionnel) Un compte Plausible.io pour les analytics
+
+### Étape 1 : Création du token Vercel
+
+1. Connectez-vous à votre [Dashboard Vercel](https://vercel.com/dashboard)
+2. Accédez à **Settings > Tokens**
+3. Cliquez sur **Create** pour générer un nouveau token
+4. Donnez-lui un nom comme "Dashboard Client"
+5. Sélectionnez les permissions **Read** (ou plus si nécessaire)
+6. Copiez le token généré
+
+### Étape 2 : Configuration des variables d'environnement
+
+Créez un fichier `.env.local` à la racine du projet avec les variables suivantes :
+
+```
+# Vercel API
+VERCEL_API_TOKEN=votre_token_ici
+NEXT_PUBLIC_VERCEL_TEAM_ID=votre_team_id_si_applicable
+
+# API Routes Auth
+API_SECRET_KEY=une_cle_secrete_aleatoire
+```
+
+### Étape 3 : Installation des dépendances
+
+```bash
+npm install
+# ou
+yarn install
+```
+
+### Étape 4 : Lancement en développement
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Votre tableau de bord sera accessible à l'adresse [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Déploiement
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Sur Vercel
 
-## Learn More
+La façon la plus simple de déployer le tableau de bord :
 
-To learn more about Next.js, take a look at the following resources:
+1. Importez votre projet dans Vercel
+2. Configurez les variables d'environnement
+3. Déployez
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+vercel
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Sur un autre hébergeur
 
-## Deploy on Vercel
+Construisez le projet pour la production :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm start
+# ou
+yarn build
+yarn start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Prochaines étapes
+
+- [ ] Authentification des utilisateurs
+- [ ] Intégration avec Plausible.io pour les analytics
+- [ ] Intégration plus poussée avec Google Calendar
+- [ ] Support pour d'autres plateformes d'hébergement
+
+## Licence
+
+Ce projet est sous licence MIT.
